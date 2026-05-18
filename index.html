@@ -4,33 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daqo Group New Zealand | Industrial Transformer & Electrical Solutions</title>
-  <meta name="description" content="Daqo Group New Zealand — industrial transformers, medium-voltage switchgear and intelligent low-voltage systems for utilities, renewables, heavy industry and critical infrastructure." />
+  <meta name="description" content="Daqo Group New Zealand — industrial transformers, switchgear and intelligent electrical systems for utilities, renewables, heavy industry and critical infrastructure." />
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f4f4f4;
-      --surface-2: #e8e8e8;
-      --text: #161616;
-      --text-2: #525252;
-      --line: #c6c6c6;
-      --blue: #0f62fe;
-      --blue-hover: #0043ce;
-      --nav: #161616;
-      --max: 1200px;
+      --black: #000000;
+      --white: #ffffff;
+      --green: #76b900;
+      --green-light: #bff230;
+      --blue-hover: #3860be;
+      --gray-1: #1a1a1a;
+      --gray-2: #5e5e5e;
+      --gray-3: #757575;
+      --gray-4: #a7a7a7;
+      --surface: #0d0d0d;
+      --surface-2: #111111;
+      --card-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 0px;
+      --max: 1220px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.5;
     }
 
-    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
     .wrap {
       width: min(var(--max), calc(100% - 32px));
@@ -38,36 +41,35 @@
     }
 
     .topbar {
-      background: var(--nav);
-      color: #fff;
-      border-bottom: 1px solid #393939;
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
+      background: rgba(0,0,0,0.94);
+      border-bottom: 1px solid #1c1c1c;
+      backdrop-filter: blur(10px);
     }
 
     .nav {
-      min-height: 56px;
+      min-height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      padding: 0;
+      gap: 20px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
-      min-height: 56px;
-      font-size: 0.95rem;
-      font-weight: 600;
+      gap: 14px;
+      min-height: 64px;
+      font-weight: 700;
+      font-size: 1rem;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      background: linear-gradient(180deg, #0f62fe 0%, #0043ce 100%);
+      width: 44px;
+      height: 44px;
+      background: var(--green);
       position: relative;
       flex: 0 0 auto;
     }
@@ -76,20 +78,21 @@
     .brand-mark::after {
       content: "";
       position: absolute;
-      left: 8px;
-      right: 8px;
-      border-top: 2px solid rgba(255,255,255,0.95);
+      background: var(--black);
     }
 
-    .brand-mark::before { top: 14px; box-shadow: 0 6px 0 rgba(255,255,255,0.95), 0 12px 0 rgba(255,255,255,0.95); }
-    .brand-mark::after { display: none; }
+    .brand-mark::before {
+      left: 8px;
+      right: 8px;
+      top: 12px;
+      height: 4px;
+      box-shadow: 0 8px 0 var(--black), 0 16px 0 var(--black);
+    }
 
     .brand-sub {
       display: block;
-      color: #c6c6c6;
-      font-size: 0.75rem;
-      letter-spacing: 0.32px;
-      font-weight: 400;
+      color: var(--gray-4);
+      font-size: 0.78rem;
       margin-top: 2px;
     }
 
@@ -97,152 +100,212 @@
       display: flex;
       flex-wrap: wrap;
       gap: 22px;
-      color: #c6c6c6;
-      font-size: 0.875rem;
-      letter-spacing: 0.16px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    .nav-links a:hover { color: #fff; }
+    .nav-links a {
+      color: var(--white);
+      transition: color 0.16s ease;
+    }
+
+    .nav-links a:hover { color: var(--blue-hover); }
 
     .hero {
-      padding: 56px 0 0;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35) 100%),
+        url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 2px;
+      background: var(--green);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 0;
-      align-items: stretch;
-      border-top: 1px solid var(--line);
-    }
-
-    .hero-copy {
-      padding: 48px 32px 48px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 560px;
+      gap: 32px;
+      min-height: 720px;
+      align-items: end;
+      padding: 80px 0 64px;
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.32px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
       text-transform: uppercase;
-      color: var(--text-2);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      margin: 0 0 20px;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      line-height: 1.08;
-      font-weight: 300;
-      letter-spacing: 0;
+      margin: 0 0 18px;
+      font-size: clamp(2.7rem, 5.6vw, 4.7rem);
+      line-height: 1.06;
+      font-weight: 700;
+      max-width: 12ch;
     }
 
     .lead {
       max-width: 60ch;
-      color: var(--text-2);
-      font-size: 1rem;
-      margin: 0 0 28px;
+      font-size: 18px;
+      line-height: 1.67;
+      color: var(--gray-4);
+      margin: 0 0 32px;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 14px;
+      margin-bottom: 34px;
     }
 
     .btn {
-      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 24px;
-      border: 1px solid transparent;
-      border-radius: 0;
-      font-size: 0.95rem;
-      font-weight: 600;
+      padding: 11px 16px;
+      min-height: 48px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 2px;
       transition: 0.18s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--blue);
-      color: #fff;
-    }
-
-    .btn-primary:hover { background: var(--blue-hover); }
-
-    .btn-secondary {
+      border: 2px solid var(--green);
       background: transparent;
-      color: var(--blue);
-      border-color: var(--blue);
+      color: var(--white);
     }
 
-    .btn-secondary:hover {
-      background: #edf5ff;
-      color: var(--blue-hover);
-      border-color: var(--blue-hover);
+    .btn:hover {
+      background: #1eaedb;
+      color: var(--white);
+      border-color: #1eaedb;
     }
 
-    .metrics {
+    .btn-dark {
+      border-color: var(--gray-2);
+      color: var(--gray-4);
+    }
+
+    .btn-dark:hover {
+      color: var(--white);
+      border-color: var(--green);
+      background: transparent;
+    }
+
+    .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       max-width: 760px;
     }
 
-    .metric {
-      padding-top: 16px;
-      border-top: 2px solid var(--text);
+    .stat {
+      padding: 18px 18px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(118,185,0,0.22);
+      border-radius: 2px;
+      box-shadow: var(--card-shadow);
     }
 
-    .metric strong {
+    .stat strong {
       display: block;
-      font-size: 2rem;
-      font-weight: 300;
+      font-size: 32px;
+      line-height: 1.25;
       margin-bottom: 6px;
+      font-weight: 700;
     }
 
-    .metric span {
-      color: var(--text-2);
-      font-size: 0.875rem;
-      letter-spacing: 0.16px;
+    .stat span {
+      color: var(--gray-4);
+      font-size: 15px;
+      line-height: 1.67;
     }
 
-    .hero-media {
-      min-height: 560px;
-      position: relative;
+    .hero-card {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 0;
+    }
+
+    .hero-card-inner {
+      margin-left: auto;
+      width: min(460px, 100%);
+      background: rgba(0,0,0,0.74);
+      border: 1px solid rgba(118,185,0,0.32);
+      box-shadow: var(--card-shadow);
+      border-radius: 2px;
       overflow: hidden;
-      background: #d9d9d9;
     }
 
-    .hero-media img {
+    .hero-card-inner img {
       width: 100%;
-      height: 100%;
+      height: 260px;
       object-fit: cover;
     }
 
-    .hero-tag {
-      position: absolute;
-      left: 24px;
-      bottom: 24px;
-      background: rgba(255,255,255,0.92);
-      color: var(--text);
-      padding: 14px 16px;
-      max-width: 300px;
-      border-left: 4px solid var(--blue);
-      font-size: 0.875rem;
+    .hero-card-copy {
+      padding: 20px;
+    }
+
+    .hero-card-copy h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .hero-card-copy p {
+      margin: 0;
+      color: var(--gray-4);
+      font-size: 15px;
+      line-height: 1.67;
     }
 
     .section {
-      padding: 64px 0;
-      border-top: 1px solid var(--line);
+      padding: 72px 0;
+      border-top: 1px solid #141414;
     }
 
-    .section.gray { background: var(--surface); }
+    .section-light {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .section-light .label { color: var(--green); }
+    .section-light .section-head p,
+    .section-light .card p,
+    .section-light .card li,
+    .section-light .feature-list li,
+    .section-light .split-text p,
+    .section-light .footer-muted { color: var(--gray-3); }
+    .section-light .card,
+    .section-light .image-card,
+    .section-light .info-panel {
+      background: var(--white);
+      border: 1px solid #d8d8d8;
+      box-shadow: var(--card-shadow);
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--green);
+    }
 
     .section-head {
       display: grid;
@@ -255,55 +318,60 @@
     .section-head h2 {
       margin: 0;
       font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
-      font-weight: 300;
+      line-height: 1.12;
+      font-weight: 700;
     }
 
     .section-head p {
       margin: 0;
-      color: var(--text-2);
-      font-size: 1rem;
-    }
-
-    .label {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-size: 0.75rem;
-      letter-spacing: 0.32px;
-      color: var(--text-2);
-      text-transform: uppercase;
+      color: var(--gray-4);
+      font-size: 16px;
+      line-height: 1.5;
     }
 
     .cards-3,
     .cards-4 {
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
     .cards-3 { grid-template-columns: repeat(3, 1fr); }
     .cards-4 { grid-template-columns: repeat(4, 1fr); }
 
     .card {
-      background: #fff;
-      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--gray-2);
+      border-radius: 2px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
       min-height: 100%;
-      border: 1px solid var(--line);
-      border-radius: 0;
     }
 
-    .gray .card { background: #fff; }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-copy {
+      padding: 20px;
+    }
 
     .card h3 {
       margin: 0 0 12px;
-      font-size: 1.25rem;
-      line-height: 1.4;
-      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      display: inline-block;
+      border-bottom: 2px solid var(--green);
+      padding-bottom: 4px;
     }
 
     .card p,
     .card li {
-      color: var(--text-2);
-      font-size: 0.94rem;
+      font-size: 15px;
+      line-height: 1.67;
+      color: var(--gray-4);
     }
 
     .card ul {
@@ -314,7 +382,22 @@
     .split {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 18px;
+    }
+
+    .info-panel {
+      background: var(--surface-2);
+      border: 1px solid var(--gray-2);
+      border-radius: 2px;
+      box-shadow: var(--card-shadow);
+      padding: 24px;
+    }
+
+    .info-panel h3 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 700;
     }
 
     .feature-list {
@@ -324,26 +407,30 @@
     }
 
     .feature-list li {
-      padding: 16px 0;
-      border-top: 1px solid var(--line);
-      color: var(--text-2);
+      padding: 15px 0;
+      border-top: 1px solid rgba(118,185,0,0.18);
+      color: var(--gray-4);
+      font-size: 15px;
+      line-height: 1.67;
     }
 
-    .feature-list li strong { color: var(--text); }
+    .feature-list li strong { color: inherit; }
 
     .image-band {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      margin-top: 24px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-top: 28px;
     }
 
     .image-card {
       position: relative;
-      min-height: 320px;
+      min-height: 340px;
       overflow: hidden;
-      background: #d9d9d9;
-      border: 1px solid var(--line);
+      border: 1px solid var(--gray-2);
+      box-shadow: var(--card-shadow);
+      border-radius: 2px;
+      background: var(--surface);
     }
 
     .image-card img {
@@ -354,20 +441,52 @@
 
     .image-caption {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(180deg, rgba(22,22,22,0) 0%, rgba(22,22,22,0.92) 100%);
-      color: #fff;
-      padding: 36px 20px 18px;
-      font-size: 0.92rem;
+      inset: auto 0 0 0;
+      padding: 34px 18px 16px;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 100%);
+      color: var(--white);
+      font-size: 14px;
+      line-height: 1.5;
+      border-top: 1px solid rgba(118,185,0,0.3);
+    }
+
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .sector {
+      padding: 20px;
+      border: 1px solid var(--gray-2);
+      border-radius: 2px;
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
+    }
+
+    .sector h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.25;
+      border-bottom: 2px solid var(--green);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .sector p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.67;
+      color: var(--gray-4);
     }
 
     .cta {
-      background: var(--nav);
-      color: #fff;
-      padding: 40px 0;
-      margin-top: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.84) 100%),
+        url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      border-top: 1px solid rgba(118,185,0,0.24);
+      border-bottom: 1px solid rgba(118,185,0,0.24);
+      padding: 56px 0;
     }
 
     .cta-grid {
@@ -377,56 +496,63 @@
       align-items: center;
     }
 
-    .cta p {
-      color: #c6c6c6;
-      margin: 10px 0 0;
-      max-width: 60ch;
+    .cta-grid h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.12;
+      font-weight: 700;
+      max-width: 18ch;
+    }
+
+    .cta-grid p {
+      margin: 12px 0 0;
+      color: var(--gray-4);
+      max-width: 62ch;
+      font-size: 16px;
     }
 
     .footer {
-      padding: 24px 0 48px;
-      font-size: 0.875rem;
-      color: var(--text-2);
+      padding: 22px 0 42px;
+      background: var(--black);
+      color: var(--gray-3);
+      font-size: 12px;
+      line-height: 1.25;
     }
 
     .footer-row {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
+      border-top: 1px solid #1c1c1c;
       padding-top: 16px;
-      border-top: 1px solid var(--line);
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1100px) {
       .hero-grid,
       .section-head,
       .cards-3,
       .cards-4,
       .split,
       .image-band,
+      .sector-grid,
       .cta-grid,
-      .metrics {
+      .stats {
         grid-template-columns: 1fr;
       }
 
-      .hero-copy {
-        min-height: auto;
-        padding: 32px 0;
-      }
-
-      .hero-media {
-        min-height: 360px;
-      }
+      h1 { max-width: none; }
+      .hero-grid { min-height: unset; padding: 64px 0 48px; }
+      .hero-card-inner { margin-left: 0; }
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 720px) {
       .wrap { width: min(var(--max), calc(100% - 20px)); }
       .nav-links { display: none; }
-      .hero { padding-top: 24px; }
-      .section { padding: 44px 0; }
-      .card { padding: 20px; }
-      .hero-media { min-height: 280px; }
+      .hero { background-position: center; }
+      .section { padding: 52px 0; }
+      .card img { height: 180px; }
+      .image-card { min-height: 260px; }
     }
   </style>
 </head>
@@ -453,34 +579,42 @@
   <main id="top">
     <section class="hero">
       <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Global manufacturer. NZ market relevance.</div>
-          <h1>Electrical infrastructure built for industrial reliability.</h1>
+        <div>
+          <div class="eyebrow">Engineered power infrastructure for demanding environments</div>
+          <h1>Industrial electrical systems with performance at the core.</h1>
           <p class="lead">
-            Daqo Group brings industrial transformer, medium-voltage switchgear and intelligent low-voltage distribution capabilities to the New Zealand market — with the scale, compliance and application depth required for utilities, renewables, heavy industry and critical infrastructure.
+            Daqo Group brings transformer, switchgear and intelligent power distribution capability to New Zealand with a product portfolio aligned to utilities, renewables, heavy industry, transport and critical infrastructure.
           </p>
           <div class="actions">
-            <a class="btn btn-primary" href="#products">Explore solutions</a>
-            <a class="btn btn-secondary" href="#contact">Discuss a project</a>
+            <a class="btn" href="#products">Explore solutions</a>
+            <a class="btn btn-dark" href="#contact">Discuss a project</a>
           </div>
-          <div class="metrics">
-            <div class="metric">
+          <div class="stats">
+            <div class="stat">
               <strong>17,000+</strong>
-              <span>Employees across manufacturing and engineering</span>
+              <span>Employees across manufacturing, engineering and R&amp;D</span>
             </div>
-            <div class="metric">
+            <div class="stat">
               <strong>6</strong>
-              <span>Production bases supporting delivery capacity</span>
+              <span>Production bases supporting global supply capacity</span>
             </div>
-            <div class="metric">
+            <div class="stat">
               <strong>1965</strong>
-              <span>Founded with decades of electrical industry experience</span>
+              <span>Founded with decades of electrical industry execution</span>
             </div>
           </div>
         </div>
-        <div class="hero-media">
-          <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=80" alt="High-voltage power infrastructure and industrial energy network" />
-          <div class="hero-tag">Positioned for NZ energy, utility, industrial and renewable applications where uptime and compliance matter.</div>
+
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1400&q=80" alt="Industrial electrical control equipment and switchgear systems" />
+            <div class="hero-card-copy">
+              <h3>Positioned for grid, industrial and renewable applications</h3>
+              <p>
+                Built for buyers who care about compliance, uptime, high-load reliability and long-term electrical system performance.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -490,77 +624,72 @@
         <div class="section-head">
           <div>
             <span class="label">Company background</span>
-            <h2>Established scale, structured delivery and broad product depth.</h2>
+            <h2>Global scale matched with industrial application depth.</h2>
           </div>
           <p>
-            Daqo Group is a large-scale electrical equipment manufacturer with strengths in power distribution, intelligent electrical systems, transport electrification and renewable energy applications. The business has operated internationally for over two decades and includes New Zealand among the markets it serves.
+            Daqo Group is a large-scale electrical equipment manufacturer focused on power distribution, intelligent electrical systems, transportation electrification and renewable energy infrastructure. The group’s capability spans manufacturing, R&amp;D and digitally enabled operations.
           </p>
         </div>
         <div class="split">
-          <div class="card">
-            <h3>What makes this relevant in New Zealand</h3>
-            <p>
-              NZ projects often require a supplier that can cover utility-grade equipment, renewable integration, industrial duty cycles and international standards alignment. Daqo’s portfolio addresses those needs across transformers, switchgear, digital monitoring and power distribution systems.
-            </p>
+          <div class="info-panel">
+            <h3>NZ market fit</h3>
             <ul class="feature-list">
-              <li><strong>Manufacturing strength:</strong> multi-base production footprint and significant asset backing.</li>
-              <li><strong>Global experience:</strong> established international delivery record, including overseas power projects.</li>
-              <li><strong>Application breadth:</strong> suitable for new energy, urban grids, data centres, mining and heavy process industries.</li>
+              <li><strong>Utility relevance:</strong> suitable for urban grids, substations and distribution upgrades.</li>
+              <li><strong>Renewables alignment:</strong> transformer and switchgear fit for solar, wind and BESS environments.</li>
+              <li><strong>Industrial durability:</strong> positioned for heavy-duty loads in mining, cement, petrochemical and manufacturing settings.</li>
             </ul>
           </div>
-          <div class="card">
-            <h3>Operational profile</h3>
+          <div class="info-panel">
+            <h3>Core strengths</h3>
             <ul class="feature-list">
-              <li><strong>R&amp;D capability:</strong> multiple research institutes supporting product engineering and manufacturing development.</li>
-              <li><strong>Digital operations:</strong> intelligent monitoring, condition analysis and energy management incorporated into product lines.</li>
-              <li><strong>Group scale:</strong> major industrial footprint supporting supply confidence and project capacity.</li>
+              <li><strong>Manufacturing footprint:</strong> large-scale production capacity across multiple sites.</li>
+              <li><strong>R&amp;D support:</strong> research institutes supporting product evolution and engineering capability.</li>
+              <li><strong>Digital operations:</strong> intelligent monitoring, health assessment and energy management embedded in key systems.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="products" class="section gray">
+    <section id="products" class="section section-light">
       <div class="wrap">
         <div class="section-head">
           <div>
             <span class="label">Product portfolio</span>
-            <h2>Professional electrical solutions across transformer, MV and LV systems.</h2>
+            <h2>Transformer, MV and LV systems engineered for serious infrastructure.</h2>
           </div>
           <p>
-            The NZ-facing proposition is strongest where proven hardware, industrial durability and standards-based designs are required across power conversion, protection and distribution.
+            The strongest NZ proposition is around robust power hardware, standards-driven designs and intelligent electrical systems that suit modern industrial and energy infrastructure projects.
           </p>
         </div>
         <div class="cards-3">
           <article class="card">
-            <h3>Power Transformers</h3>
-            <p>
-              Dry-type, oil-immersed and padmount transformer solutions for industrial, utility and renewable use cases. Offerings include energy-saving dry-type units and oil-immersed power transformers for high-load, high-reliability environments.
-            </p>
+            <img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=1200&q=80" alt="Large power transformers at industrial utility site" />
+            <div class="card-copy">
+              <h3>Power Transformers</h3>
+              <p>
+                Dry-type, oil-immersed and padmount transformer solutions for industrial, utility and renewable applications, including high-load environments where reliability is non-negotiable.
+              </p>
+            </div>
           </article>
           <article class="card">
-            <h3>Medium Voltage Switchgear</h3>
-            <p>
-              7.2–40.5kV switchgear systems including UR4 and UDQ series, designed around safety interlocks, enclosed metal-clad construction and digital condition monitoring capabilities.
-            </p>
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Electrical switchgear and power distribution room" />
+            <div class="card-copy">
+              <h3>Medium Voltage Switchgear</h3>
+              <p>
+                7.2–40.5kV switchgear systems designed for enclosed safety, mechanical interlocking and smart condition monitoring in utility and industrial installations.
+              </p>
+            </div>
           </article>
           <article class="card">
-            <h3>Low Voltage Distribution</h3>
-            <p>
-              Modular intelligent low-voltage systems such as MODAN6000 and MODAQO-M for distribution centres, motor control centres and lighting control — with energy management integration and long service life.
-            </p>
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Industrial low voltage control cabinets and electrical systems" />
+            <div class="card-copy">
+              <h3>Intelligent LV Distribution</h3>
+              <p>
+                Modular low-voltage systems for motor control, distribution and lighting control, with integrated energy visibility and smart operation support.
+              </p>
+            </div>
           </article>
-        </div>
-
-        <div class="image-band">
-          <div class="image-card">
-            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1400&q=80" alt="Wind turbines and renewable generation infrastructure" />
-            <div class="image-caption">Renewable generation and BESS-aligned applications are a strong fit for Daqo’s transformer and distribution portfolio.</div>
-          </div>
-          <div class="image-card">
-            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1000&q=80" alt="Industrial electrical control panels and power systems" />
-            <div class="image-caption">Switchgear and intelligent LV systems are relevant to industrial facilities, utilities and critical infrastructure.</div>
-          </div>
         </div>
       </div>
     </section>
@@ -569,63 +698,71 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <span class="label">Target sectors</span>
-            <h2>Designed for sectors where reliability, safety and power quality are business critical.</h2>
+            <span class="label">Industries served</span>
+            <h2>Built for environments where power quality and uptime drive everything.</h2>
           </div>
           <p>
-            Daqo’s product range maps well to NZ sectors experiencing electrification, grid reinforcement, data-centre growth and industrial modernization.
+            Daqo’s electrical solutions align with the kinds of sectors New Zealand is investing in: renewable generation, grid reinforcement, data centres, municipal infrastructure and heavy industry.
           </p>
         </div>
-        <div class="cards-4">
-          <article class="card">
+        <div class="sector-grid">
+          <div class="sector">
             <h3>Renewables &amp; BESS</h3>
-            <p>Solar PV, wind power, energy storage, off-grid systems and power-intensive clean energy projects.</p>
-          </article>
-          <article class="card">
+            <p>Solar PV, wind power, battery energy storage and projects needing reliable power conversion and distribution equipment.</p>
+          </div>
+          <div class="sector">
             <h3>Utilities &amp; Grids</h3>
-            <p>Urban power grids, substations, distribution upgrades and commercial electrical infrastructure.</p>
-          </article>
-          <article class="card">
+            <p>Urban distribution, substations, commercial grids and infrastructure upgrades requiring proven MV and transformer capability.</p>
+          </div>
+          <div class="sector">
             <h3>Heavy Industry</h3>
-            <p>Mining, cement, petrochemical, metallurgy and demanding industrial process environments.</p>
-          </article>
-          <article class="card">
+            <p>Mining, cement, metallurgy, petrochemical and manufacturing operations with high-load reliability requirements.</p>
+          </div>
+          <div class="sector">
             <h3>Critical Infrastructure</h3>
-            <p>Data centres, transport, municipal systems and other uptime-sensitive assets.</p>
-          </article>
+            <p>Data centres, rail, water treatment and municipal systems where resilience, monitoring and operational continuity matter.</p>
+          </div>
+        </div>
+
+        <div class="image-band">
+          <div class="image-card">
+            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80" alt="Wind farm and renewable energy infrastructure" />
+            <div class="image-caption">Strong fit for renewable generation and grid-side infrastructure where switchgear, transformers and system reliability need to scale together.</div>
+          </div>
+          <div class="image-card">
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80" alt="Solar and industrial electrical energy systems" />
+            <div class="image-caption">Relevant to utility, BESS and large-site industrial electrification projects looking for robust distribution hardware.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="quality" class="section gray">
+    <section id="quality" class="section section-light">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <span class="label">Quality & compliance</span>
-            <h2>Standards-driven manufacturing with internationally recognised certifications.</h2>
+            <span class="label">Certifications & quality</span>
+            <h2>Standards-based manufacturing for confidence in procurement.</h2>
           </div>
           <p>
-            For the NZ market, credibility comes from clear alignment to IEC-led standards, tested product lines and robust management systems.
+            For NZ buyers, the trust layer is clear: internationally aligned standards, third-party certification and management systems that support serious infrastructure procurement.
           </p>
         </div>
         <div class="split">
-          <div class="card">
-            <h3>Certifications</h3>
+          <div class="info-panel">
+            <h3>Certification profile</h3>
             <ul class="feature-list">
               <li><strong>Management systems:</strong> ISO 9001, ISO 14001 and ISO 45001.</li>
-              <li><strong>Third-party validation:</strong> ASTA, TÜV, UL, CE and CB certifications across relevant product lines.</li>
-              <li><strong>Standards fit:</strong> IEC 62271, IEC 60076, IEC 61439-2 and related industrial norms.</li>
+              <li><strong>Third-party testing:</strong> ASTA, TÜV, UL, CE and CB across relevant equipment lines.</li>
+              <li><strong>Standards:</strong> IEC 62271, IEC 60076, IEC 61439-2 and associated industrial standards.</li>
             </ul>
           </div>
-          <div class="card">
-            <h3>Intelligent operations</h3>
-            <p>
-              Daqo’s intelligent product lines extend beyond hardware by incorporating temperature monitoring, fault warning, health assessment, energy management and condition-based maintenance support.
-            </p>
+          <div class="info-panel">
+            <h3>Intelligent operational capability</h3>
             <ul class="feature-list">
-              <li><strong>Health monitoring:</strong> real-time condition visibility and operational assessment.</li>
-              <li><strong>Energy management:</strong> integrated data monitoring and analysis functions.</li>
-              <li><strong>Maintenance shift:</strong> supports movement from scheduled maintenance to condition-led maintenance.</li>
+              <li><strong>Condition monitoring:</strong> temperature, status and health visibility in smart systems.</li>
+              <li><strong>Energy management:</strong> real-time monitoring and statistical analysis in intelligent distribution solutions.</li>
+              <li><strong>Maintenance efficiency:</strong> enabling targeted maintenance and fewer unnecessary outages.</li>
             </ul>
           </div>
         </div>
@@ -635,13 +772,13 @@
     <section id="contact" class="cta">
       <div class="wrap cta-grid">
         <div>
-          <span class="label" style="color:#c6c6c6;">New Zealand market profile</span>
-          <h2 style="margin:0; font-size:2rem; line-height:1.15; font-weight:300; color:#fff;">Need a credible supply partner for industrial electrical infrastructure?</h2>
+          <span class="label">New Zealand market profile</span>
+          <h2>Looking for an industrial-grade electrical equipment partner?</h2>
           <p>
-            This website presents Daqo Group’s NZ-market relevance across transformers, switchgear and intelligent distribution systems for utilities, renewables and heavy industry.
+            This website presents Daqo Group’s NZ-facing relevance for utility, renewable, industrial and critical infrastructure opportunities.
           </p>
         </div>
-        <a class="btn btn-primary" href="https://github.com/lemonunlimitednz/daqo-nz-website" target="_blank" rel="noreferrer">View source</a>
+        <a class="btn" href="https://github.com/lemonunlimitednz/daqo-nz-website" target="_blank" rel="noreferrer">View source</a>
       </div>
     </section>
   </main>
@@ -649,7 +786,7 @@
   <footer class="footer">
     <div class="wrap footer-row">
       <div>© 2026 Daqo Group New Zealand</div>
-      <div>Professional IBM-inspired enterprise design for industrial buyers</div>
+      <div>Design direction inspired by NVIDIA from awesome-design-md</div>
     </div>
   </footer>
 </body>
